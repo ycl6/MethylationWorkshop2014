@@ -12,7 +12,7 @@ echo "chrX"
 wget -q -O - http://hgdownload.soe.ucsc.edu/goldenPath/hg18/database/chrX_rmskRM327.txt.gz | gunzip | awk -F $'\t' 'BEGIN { OFS=FS } { print $6,$7,$8,$12,0,$10,$13,$11 }'  > chrX_rmskRM327.bed
 
 echo "Joining files..."
-cat *_rmskRM327.bed | sortBed > hg18.rmskRM327.bed
+cat *_rmskRM327.bed | sortBed | gzip > hg18.rmskRM327.bed.gz
 rm *_rmskRM327.bed
 
 echo "Complete."
